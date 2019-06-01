@@ -1,11 +1,12 @@
 {
-  "name": "react-laravel-react",
+  "name": "gandergram",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.0.1",
+    "@material-ui/icons": "^4.0.1",
+    "@material-ui/styles": "^4.0.1",
     "axios": "^0.18.0",
-    "bootstrap": "^4.3.1",
-    "jquery": "^3.4.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
