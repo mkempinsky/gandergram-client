@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import axios from "axios";
+import "./App.css";
 import Home from "./Home";
 import Login from "./SignIn";
 import Register from "./SignUp";
@@ -24,7 +25,7 @@ class App extends React.Component {
     formData.append("password", password);
 
     axios
-      .post("http://react-laravel.test/api/user/login/", formData)
+      .post("http://gandergramapi.test/api/user/login/", formData)
       .then(response => {
         console.log(response);
         return response;
@@ -65,7 +66,7 @@ class App extends React.Component {
       });
   };
 
-  _registerUser = (name, email, password) => {
+  _registerUser = (fname, lname, email, password) => {
     // $("#email-login-btn")
     //   .attr("disabled", "disabled")
     //   .html(
@@ -74,16 +75,13 @@ class App extends React.Component {
 
     var formData = new FormData();
     formData.append("type", "email");
-    formData.append("username", "usernameee");
     formData.append("password", password);
-    formData.append("phone", 33322212231);
     formData.append("email", email);
-    formData.append("address", "address okoko");
-    formData.append("name", name);
-    formData.append("id", 76);
+    formData.append("fname", fname);
+    formData.append("lname", lname);
 
     axios
-      .post("http://react-laravel.test/api/user/register", formData)
+      .post("http://gandergramapi.test/api/user/register", formData)
       .then(response => {
         console.log(response);
         return response;
@@ -195,7 +193,11 @@ class App extends React.Component {
             <Route
               path="/register"
               render={props => (
-                <Register {...props} registerUser={this._registerUser} />
+                <Register
+                  {...props}
+                  registerUser={this._registerUser}
+                  classes={this._classes}
+                />
               )}
             />
           </Switch>

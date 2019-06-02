@@ -14,8 +14,58 @@ button {
   font-family: Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
+body {
+  background-color: #fff;
+}
+
+form {
+  width: 100%;
+}
 
 #app {
   min-width: 100%;
   min-height: 100%;
+}
+
+.paper {
+  display: flex;
+  margin-top: 64px;
+  align-items: center;
+  margin-bottom: 64px;
+  flex-direction: column;
+}
+
+.MuiAvatar-root.avatar {
+  margin: 8px;
+  background-color: #f50057;
+  color: #fafafa;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  font-size: 1.25rem;
+  align-items: center;
+  flex-shrink: 0;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  border-radius: 50%;
+  justify-content: center;
+  -moz-user-select: none;
+}
+
+.MuiTypography-root.MuiTypography-h5 {
+  margin: 10px 0;
+}
+
+.MuiButton-root.btn-submit {
+  margin: 24px 0px 16px;
+  width: 100%;
+  color: #fff;
+  background-color: #3f51b5;
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+}
+
+.text-center {
+  text-align: center;
 }
