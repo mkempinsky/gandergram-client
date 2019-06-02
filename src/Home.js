@@ -13,7 +13,7 @@ export default class Home extends React.Component {
 
   componentDidMount() {
     axios
-      .get(`http://gandergram.test/api/users/list?token=${this.state.token}`)
+      .get(`http://gandergramapi.test/api/users/list?token=${this.state.token}`)
       .then(response => {
         console.log(response);
         return response;
@@ -35,7 +35,7 @@ export default class Home extends React.Component {
         <h2>Welcome Home {"\u2728"}</h2>
         <p>List of all users on the system</p>
         <ul>
-          {this.state.users.map(user => (
+          {this.state.users.map((user, i) => (
             <ol
               style={{
                 padding: 15,
@@ -46,6 +46,7 @@ export default class Home extends React.Component {
                 marginLeft: "auto",
                 marginRight: "auto"
               }}
+              key={i}
             >
               <p>Name: {user.name}</p>
               <p>Email: {user.email}</p>
