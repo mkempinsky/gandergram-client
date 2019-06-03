@@ -104,7 +104,7 @@ class SignUpForm extends React.Component {
               color="primary"
               className="btn-submit"
             >
-              Sign In
+              Sign Up
             </Button>
             <Grid container justify="flex-end">
               <Grid item>

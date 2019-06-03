@@ -7,20 +7,22 @@ export default class Home extends React.Component {
 
     this.state = {
       token: JSON.parse(localStorage["appState"]).user.auth_token,
-      users: []
+      user: "",
+      photos: []
     };
   }
 
   componentDidMount() {
     axios
-      .get(`http://gandergramapi.test/api/users/list?token=${this.state.token}`)
+      .get(`http://gandergramapi.test/api/photos/popular?token=${this.state.token}`)
       .then(response => {
         console.log(response);
         return response;
       })
       .then(json => {
         if (json.data.success) {
-          this.setState({ users: json.data.data });
+          console.log(json.data.photos);
+          this.setState({ user: json.data.user, photos: json.data.photos });
           //alert("Login Successful!");
         } else alert("Login Failed!");
       })
@@ -32,10 +34,14 @@ export default class Home extends React.Component {
   render() {
     return (
       <div className="text-center">
-        <h2>Welcome Home {"\u2728"}</h2>
+        <h2>Welcome Home</h2>
         <p>List of all users on the system</p>
+        <div>
+          <p>Name: {this.state.user.name}</p>
+          <p>Email: {this.state.user.email}</p>
+        </div>
         <ul>
-          {this.state.users.map((user, i) => (
+          {this.state.photos.map((photo, i) => (
             <ol
               style={{
                 padding: 15,
@@ -48,8 +54,7 @@ export default class Home extends React.Component {
               }}
               key={i}
             >
-              <p>Name: {user.name}</p>
-              <p>Email: {user.email}</p>
+              <p><img src={photo.urls.thumb} /></p>
             </ol>
           ))}
         </ul>

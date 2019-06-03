@@ -27,7 +27,7 @@ class App extends React.Component {
     axios
       .post("http://gandergramapi.test/api/user/login/", formData)
       .then(response => {
-        console.log(response);
+        //console.log(response);
         return response;
       })
       .then(json => {
@@ -83,7 +83,7 @@ class App extends React.Component {
     axios
       .post("http://gandergramapi.test/api/user/register", formData)
       .then(response => {
-        console.log(response);
+        //console.log(response);
         return response;
       })
       .then(json => {
@@ -139,7 +139,7 @@ class App extends React.Component {
     let state = localStorage["appState"];
     if (state) {
       let AppState = JSON.parse(state);
-      console.log(AppState);
+      //console.log(AppState);
       this.setState({
         isLoggedIn: AppState.isLoggedIn,
         user: AppState
@@ -148,16 +148,16 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.isLoggedIn);
-    console.log("path name: " + this.props.location.pathname);
+    //console.log(this.state.isLoggedIn);
+    //console.log("path name: " + this.props.location.pathname);
     if (
       !this.state.isLoggedIn &&
       this.props.location.pathname !== "/login" &&
       this.props.location.pathname !== "/register"
     ) {
-      console.log(
-        "you are not loggedin and are not visiting login or register, so go to login page"
-      );
+      // console.log(
+      //   "you are not loggedin and are not visiting login or register, so go to login page"
+      // );
       this.props.history.push("/login");
     }
     if (
@@ -165,9 +165,9 @@ class App extends React.Component {
       (this.props.location.pathname === "/login" ||
         this.props.location.pathname === "/register")
     ) {
-      console.log(
-        "you are either going to login or register but youre logged in"
-      );
+      // console.log(
+      //   "you are either going to login or register but youre logged in"
+      // );
 
       this.props.history.push("/");
     }
